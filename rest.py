@@ -1,31 +1,30 @@
-#!/usr/bin/env python
-import web
-import xml.etree.ElementTree as ET
-
-tree = ET.parse('user_data.xml')
-root = tree.getroot()
-
-urls = (
-    '/users', 'list_users',
-    '/users/(.*)', 'get_user'
-)
-
-app = web.application(urls, globals())
-
-class list_users:        
-    def GET(self):
-    output = 'users:[';
-    for child in root:
-                print 'child', child.tag, child.attrib
-                output += str(child.attrib) + ','
-    output += ']';
-        return output
-
-class get_user:
-    def GET(self, user):
-    for child in root:
-        if child.attrib['id'] == user:
-            return str(child.attrib)
-
-if _name_ == "_main_":
-    app.run()
+import json
+import bottle
+from bottle import route, run, request, abort
+#from pymongo import Connection
+ 
+#connection = Connection('localhost', 27017)
+#db = connection.mydatabase
+ 
+@route('/documents', method='PUT')
+def put_document():
+#    data = request.body.readline()
+#    if not data:
+#        abort(400, 'No data received')
+#    entity = json.loads(data)
+#   if not entity.has_key('_id'):
+#        abort(400, 'No _id specified')
+#    try:
+        print("put");
+#       db['documents'].save(entity)
+#   except ValidationError as ve:
+#      abort(400, str(ve))
+     
+@route('/documents/:id', method='GET')
+def get_document(id):
+    entity = "oscar"#db['documents'].find_one({'_id':id})
+    if not entity:
+        abort(404, 'No document with id %s' % id)
+    return entity
+ 
+run(host='localhost', port=8080)
