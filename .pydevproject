@@ -7,5 +7,9 @@
 <pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
 <path>/Library/Python/2.7/site-packages/bottle-0.11.6-py2.7.egg</path>
 <path>/Library/Python/2.7/site-packages/pymongo-2.6.3-py2.7-macosx-10.8-intel.egg</path>
+<path>/Library/Python/2.7/site-packages/boto-2.21.2-py2.7.egg</path>
+</pydev_pathproperty>
+<pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
+<path>/TrainingBox/src</path>
 </pydev_pathproperty>
 </pydev_project>
